@@ -49,5 +49,11 @@ public class BibliotecaAppTest {
         bibliotecaApp.getBookDetail(1);
         assertEquals(bookDetail, outContent.toString());
     }
+
+    @Test
+    public void showMenuTest() {
+        bibliotecaApp.showMenu();
+        assertEquals("List Books\n", outContent.toString());
+    }
 }
 
