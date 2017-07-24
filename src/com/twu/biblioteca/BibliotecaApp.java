@@ -1,11 +1,12 @@
 package com.twu.biblioteca;
+import java.util.ArrayList;
 
 public class BibliotecaApp {
-    Book[] books = new Book[5];
+    ArrayList<Book> books = new ArrayList<Book>();
 
     BibliotecaApp() {
-        for (int i = 0;i < this.books.length;i++) {
-            this.books[i] = new Book("《linux指南》", "David", "2003/3/12");
+        for (int i = 0;i < 5;i++) {
+            this.books.add(new Book(i, "《linux指南》", "David", "2003/3/12"));
         }
     }
 
@@ -18,6 +19,13 @@ public class BibliotecaApp {
         for (Book book : (this.books)) {
             System.out.println(book.name);
         }
+    }
+
+    void getBookDetail(int id) {
+        Book book = this.books.get(id);
+        System.out.println("名称：" + book.name);
+        System.out.println("作者：" + book.author);
+        System.out.println("出版日期："+ book.publishedYear);
     }
 
     public static void main(String[] args) {

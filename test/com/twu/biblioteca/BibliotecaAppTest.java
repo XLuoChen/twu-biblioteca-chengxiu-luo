@@ -42,5 +42,12 @@ public class BibliotecaAppTest {
         bibliotecaApp.listAllBooks();
         assertEquals(booksList, outContent.toString());
     }
+
+    @Test
+    public void getBookDetailTest() {
+        String bookDetail = "名称：《linux指南》\n" + "作者：David\n" + "出版日期：2003/3/12\n";
+        bibliotecaApp.getBookDetail(1);
+        assertEquals(bookDetail, outContent.toString());
+    }
 }
 

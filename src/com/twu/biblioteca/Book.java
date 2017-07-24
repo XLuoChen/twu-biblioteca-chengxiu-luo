@@ -1,14 +1,20 @@
 package com.twu.biblioteca;
 
 public class Book {
+    int id;
     String name;
     String author;
     String publishedYear;
 
-    Book (String name, String author, String publishedYear) {
+    Book (int id, String name, String author, String publishedYear) {
+        this.setId(id);
         this.setName(name);
         this.setAuthor(author);
         this.setPublishedYear(publishedYear);
+    }
+
+    void setId(int id) {
+        this.id = id;
     }
 
     void setName (String name) {
