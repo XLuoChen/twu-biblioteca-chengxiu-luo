@@ -3,12 +3,12 @@ package com.twu.biblioteca;
 public class Book {
     String name;
     String author;
-    String editor;
+    String publishedYear;
 
-    Book (String name, String author, String editor) {
+    Book (String name, String author, String publishedYear) {
         this.setName(name);
         this.setAuthor(author);
-        this.setEditor(editor);
+        this.setPublishedYear(publishedYear);
     }
 
     void setName (String name) {
@@ -19,8 +19,8 @@ public class Book {
         this.author = author;
     }
 
-    void setEditor (String editor) {
-        this.editor = editor;
+    void setPublishedYear(String year) {
+        this.publishedYear = year;
     }
 
     String getName () {
@@ -31,7 +31,7 @@ public class Book {
         return this.author;
     }
 
-    String getEditor () {
-        return this.editor;
+    String getPublishedYear() {
+        return this.publishedYear;
     }
 }

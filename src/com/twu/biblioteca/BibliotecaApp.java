@@ -5,7 +5,7 @@ public class BibliotecaApp {
 
     BibliotecaApp() {
         for (int i = 0;i < this.books.length;i++) {
-            this.books[i] = new Book("《linux指南》", "David", "人民邮电出版社");
+            this.books[i] = new Book("《linux指南》", "David", "2003/3/12");
         }
     }
 
@@ -16,7 +16,7 @@ public class BibliotecaApp {
 
     void listAllBooks () {
         for (Book book : (this.books)) {
-            System.out.println(book.name + "\t" + book.author + "\t" + book.editor);
+            System.out.println(book.name);
         }
     }
 

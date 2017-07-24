@@ -34,11 +34,11 @@ public class BibliotecaAppTest {
 
     @Test
     public void listAllBooksTest() {
-        String booksList = "《linux指南》\tDavid\t人民邮电出版社\n"
-                + "《linux指南》\tDavid\t人民邮电出版社\n"
-                + "《linux指南》\tDavid\t人民邮电出版社\n"
-                + "《linux指南》\tDavid\t人民邮电出版社\n"
-                + "《linux指南》\tDavid\t人民邮电出版社\n";
+        String booksList = "《linux指南》\n"
+                + "《linux指南》\n"
+                + "《linux指南》\n"
+                + "《linux指南》\n"
+                + "《linux指南》\n";
         bibliotecaApp.listAllBooks();
         assertEquals(booksList, outContent.toString());
     }
