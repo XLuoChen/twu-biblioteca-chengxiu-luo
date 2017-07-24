@@ -17,15 +17,15 @@ public class BibliotecaApp {
 
     void listAllBooks () {
         for (Book book : (this.books)) {
-            System.out.println(book.name);
+            System.out.println(book.getName());
         }
     }
 
     void getBookDetail(int id) {
         Book book = this.books.get(id);
-        System.out.println("名称：" + book.name);
-        System.out.println("作者：" + book.author);
-        System.out.println("出版日期："+ book.publishedYear);
+        System.out.println("名称：" + book.getName());
+        System.out.println("作者：" + book.getAuthor());
+        System.out.println("出版日期："+ book.getPublishedYear());
     }
 
     public static void main(String[] args) {
