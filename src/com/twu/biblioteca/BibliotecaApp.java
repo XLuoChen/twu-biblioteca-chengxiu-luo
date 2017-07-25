@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class BibliotecaApp {
     ArrayList<Book> books = new ArrayList<Book>();
@@ -34,9 +35,24 @@ public class BibliotecaApp {
         for (String menu : this.meus)
         System.out.println(menu);
     }
+
+    void displaySelectedOption(int choice) {
+        switch (choice) {
+            case 1:
+                this.listAllBooks();
+                break;
+            default:
+                System.out.println("Select a valid option");
+        }
+    }
+
     public static void main(String[] args) {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.printWelcomeMessage("Welcome to BibliotecaApp");
         bibliotecaApp.showMenu();
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        bibliotecaApp.displaySelectedOption(choice);
+
     }
 }

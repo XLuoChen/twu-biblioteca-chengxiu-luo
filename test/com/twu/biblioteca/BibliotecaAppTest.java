@@ -55,5 +55,11 @@ public class BibliotecaAppTest {
         bibliotecaApp.showMenu();
         assertEquals("List Books\n", outContent.toString());
     }
+
+    @Test
+    public void displaySelectedOptionTest() {
+        bibliotecaApp.displaySelectedOption(2);
+        assertEquals("Select a valid option\n", outContent.toString());
+    }
 }
 
