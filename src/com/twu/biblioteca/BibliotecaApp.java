@@ -6,18 +6,12 @@ public class BibliotecaApp {
         System.out.println("Welcome!");
     }
 
-    public void showMenu() {
-        System.out.println("\t---------------------");
-        System.out.println("\t\t1. List options");
-    }
-
     public static void main(String[] args) {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
 
-        bibliotecaApp.showMenu();
-
-        Display display = new Display();
+        Display display = new Display(new Display());
+        display.showMenu();
         display.displayInformationWithUserInput();
     }
 }

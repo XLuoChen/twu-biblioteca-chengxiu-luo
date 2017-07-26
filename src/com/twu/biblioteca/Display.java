@@ -11,13 +11,18 @@ public class Display {
     }
 
     public Display(Display display) {
-        super();
+        this();
         this.display = display;
     }
 
-    public int getUserInputOption() {
+    public void showMenu() {
+        System.out.println("\t---------------------");
+        System.out.println("\t\t1. List options");
+    }
+
+    public String getUserInputOption() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+        return scanner.nextLine();
     }
 
     public void displayInvalidMessage() {
@@ -33,12 +38,18 @@ public class Display {
     }
 
     public void displayInformationWithUserInput() {
-        switch (getUserInputOption()) {
-            case 1:
-                displayBooks();
-                break;
-            default:
-                displayInvalidMessage();
+        String userInputOption = display.getUserInputOption();
+        while (!userInputOption.equals("Q")) {
+
+            switch (userInputOption) {
+                case "1":
+                    display.displayBooks();
+                    break;
+                default:
+                    display.displayInvalidMessage();
+            }
+            showMenu();
+            userInputOption = getUserInputOption();
         }
     }
 }
