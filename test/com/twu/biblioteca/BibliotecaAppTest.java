@@ -13,7 +13,12 @@ public class BibliotecaAppTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
-    BibliotecaApp bibliotecaApp = new BibliotecaApp();
+    private BibliotecaApp bibliotecaApp;
+
+    @Before
+    public void setUp() throws Exception {
+        bibliotecaApp = new BibliotecaApp();
+    }
 
     @Before
     public void setUpStreams() {
@@ -28,38 +33,9 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void PrintWelcomeMessageTest() {
-        assertEquals("Welcome to Biblioteca",bibliotecaApp.printWelcomeMessage("Welcome to Biblioteca"));
-    }
-
-    @Test
-    public void listAllBooksTest() {
-        String booksList = "《linux指南》\n"
-                + "《linux指南》\n"
-                + "《linux指南》\n"
-                + "《linux指南》\n"
-                + "《linux指南》\n";
-        bibliotecaApp.listAllBooks();
-        assertEquals(booksList, outContent.toString());
-    }
-
-    @Test
-    public void getBookDetailTest() {
-        String bookDetail = "名称：《linux指南》\n" + "作者：David\n" + "出版日期：2003/3/12\n";
-        bibliotecaApp.getBookDetail(1);
-        assertEquals(bookDetail, outContent.toString());
-    }
-
-    @Test
-    public void showMenuTest() {
-        bibliotecaApp.showMenu();
-        assertEquals("List Books\n", outContent.toString());
-    }
-
-    @Test
-    public void displaySelectedOptionTest() {
-        bibliotecaApp.displaySelectedOption(2);
-        assertEquals("Select a valid option\n", outContent.toString());
+    public void displayWelcomeMessageTest() {
+        bibliotecaApp.displayWelcomeMessage();
+        assertEquals("Welcome!\n", outContent.toString());
     }
 }
 

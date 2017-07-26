@@ -1,43 +1,33 @@
 package com.twu.biblioteca;
 
+import static java.lang.String.format;
+
 public class Book {
-    int id;
-    String name;
-    String author;
-    String publishedYear;
+    private int id;
+    private String name;
+    private String author;
+    private String publishedYear;
 
     Book (int id, String name, String author, String publishedYear) {
-        this.setId(id);
-        this.setName(name);
-        this.setAuthor(author);
-        this.setPublishedYear(publishedYear);
-    }
-
-    void setId(int id) {
         this.id = id;
-    }
-
-    void setName (String name) {
         this.name = name;
-    }
-
-    void setAuthor (String author) {
         this.author = author;
+        this.publishedYear = publishedYear;
     }
 
-    void setPublishedYear(String year) {
-        this.publishedYear = year;
+    public String getName() {
+        return name;
     }
 
-    String getName () {
-        return this.name;
+    public String getAuthor() {
+        return author;
     }
 
-    String getAuthor () {
-        return this.author;
+    public String getPublishedYear() {
+        return publishedYear;
     }
 
-    String getPublishedYear() {
-        return this.publishedYear;
+    public String getBookDetail() {
+        return format("name: %-4s author:%-4s publishedYear:%-4s",this.name, this.author, this.publishedYear);
     }
 }
