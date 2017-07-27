@@ -7,11 +7,11 @@ public class BibliotecaApp {
     }
 
     public static void main(String[] args) {
+
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
 
-        Display display = new Display(new Display(),new Library());
-        display.showMenu();
-        display.displayInformationWithUserInput();
+        Menu menu = new Menu(new Library(),new Display());
+        menu.menu();
     }
 }

@@ -7,7 +7,11 @@ public class Library {
     ArrayList<Book> books = new ArrayList<Book>();
 
    public Library() {
-       this.books.add(new Book(0,"Book1","Jack","2002/4/12"));
+       readBooksFromMemory();
+    }
+
+    private void readBooksFromMemory(){
+        this.books.add(new Book(0,"Book1","Jack","2002/4/12"));
         this.books.add(new Book(1,"Book2","David","2012/2/14"));
         this.books.add(new Book(2,"Book3","Tom","2013/9/12"));
     }
