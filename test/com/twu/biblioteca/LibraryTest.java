@@ -45,7 +45,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldReturnFalseWithInvalidId() throws Exception {
+    public void shouldOutputInvalidWhenCheckoutInvalidBook() throws Exception {
         ArrayList<String> books =new ArrayList<String>();
         books.add("Book1");
         books.add("Book2");
