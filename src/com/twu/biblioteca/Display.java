@@ -50,8 +50,8 @@ public class Display {
                 default:
                     display.displayInvalidMessage();
             }
-            showMenu();
-            userInputOption = getUserInputOption();
+            display.showMenu();
+            userInputOption = display.getUserInputOption();
         }
     }
 }

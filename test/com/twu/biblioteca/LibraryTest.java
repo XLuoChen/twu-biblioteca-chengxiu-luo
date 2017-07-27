@@ -20,7 +20,7 @@ public class LibraryTest {
     }
 
     @Test
-    public void getBooksTest() throws Exception {
+    public void shouldGetAllBooks() throws Exception {
         ArrayList<String> books =new ArrayList<String>();
         books.add("Book1");
         books.add("Book2");
@@ -30,7 +30,7 @@ public class LibraryTest {
 
 
     @Test
-    public void getBookDetailTest() throws Exception {
+    public void shouldGetBookDetailByBookId() throws Exception {
         when(book.getBookDetail()).thenReturn("name: Book2 author:David publishedYear:2012/2/14");
         assertEquals("name: Book2 author:David publishedYear:2012/2/14", library.getBookDetail(1));
     }

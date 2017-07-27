@@ -33,7 +33,7 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void displayWelcomeMessageTest() {
+    public void shouldDisplayWelcomeMessageBeforeShowMenu() {
         bibliotecaApp.displayWelcomeMessage();
         assertEquals("Welcome!\n", outContent.toString());
     }

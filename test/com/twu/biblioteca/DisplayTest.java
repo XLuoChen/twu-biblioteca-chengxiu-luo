@@ -19,14 +19,14 @@ public class DisplayTest {
 
     @Test
     public void displayBooksWhenInputOne() throws Exception {
-        when(display.getUserInputOption()).thenReturn("1");
+        when(display.getUserInputOption()).thenReturn("1","Q");
         d.displayInformationWithUserInput();
         verify(display).displayBooks();
     }
 
     @Test
     public void displayInvalidMessageWhenInputValid() throws Exception {
-        when(display.getUserInputOption()).thenReturn("k");
+        when(display.getUserInputOption()).thenReturn("k","Q");
         d.displayInformationWithUserInput();
         verify(display).displayInvalidMessage();
     }
