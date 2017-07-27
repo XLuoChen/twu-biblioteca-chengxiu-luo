@@ -41,10 +41,14 @@ public class Display {
         }
     }
 
-
     public void checkoutBook() {
         String input = display.getUserInputOption();
-        library.checkoutBook(Integer.parseInt(input));
+        boolean isCheckoutBookSuccessfully = library.checkoutBook(Integer.parseInt(input));
+        if (isCheckoutBookSuccessfully) {
+            System.out.println("Thank you! Enjoy the book");
+        } else {
+            System.out.println("That book is not available.");
+        }
     }
 
     public void displayInformationWithUserInput() {

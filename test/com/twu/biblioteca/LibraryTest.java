@@ -36,11 +36,21 @@ public class LibraryTest {
     }
 
     @Test
-    public void shouldCheckoutBookWithCorrectId() throws Exception {
+    public void shouldCheckoutBookAndReturnTrueWithCorrectId() throws Exception {
         ArrayList<String> books =new ArrayList<String>();
         books.add("Book1");
         books.add("Book3");
-        library.checkoutBook(1);
+        assertEquals(true, library.checkoutBook(1));
+        assertEquals(books, library.getBooks());
+    }
+
+    @Test
+    public void shouldReturnFalseWithInvalidId() throws Exception {
+        ArrayList<String> books =new ArrayList<String>();
+        books.add("Book1");
+        books.add("Book2");
+        books.add("Book3");
+        assertEquals(false, library.checkoutBook(5));
         assertEquals(books, library.getBooks());
     }
 }

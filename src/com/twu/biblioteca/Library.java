@@ -29,10 +29,14 @@ public class Library {
         return "Sorry, the book is not exist.";
     }
 
-    public void checkoutBook(int id) {
-        Book book = this.books.get(id);
-        if (book != null) {
-            this.books.remove(id);
+    public boolean checkoutBook(int id) {
+        if (id < this.books.size()) {
+            Book book = this.books.get(id);
+            if (book != null) {
+                this.books.remove(id);
+                return true;
+            }
         }
+        return false;
     }
 }
