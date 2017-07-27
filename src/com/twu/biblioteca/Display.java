@@ -5,14 +5,17 @@ import java.util.Scanner;
 
 public class Display {
 
+    Library library;
+
     Display display;
 
     public Display() {
     }
 
-    public Display(Display display) {
+    public Display(Display display, Library library) {
         this();
         this.display = display;
+        this.library = library;
     }
 
     public void showMenu() {
@@ -32,11 +35,16 @@ public class Display {
     }
 
     public void displayBooks() {
-        Library library = new Library();
         ArrayList<String> books = library.getBooks();
         for (String book : books) {
             System.out.println(book);
         }
+    }
+
+
+    public void checkoutBook() {
+        String input = display.getUserInputOption();
+        library.checkoutBook(Integer.parseInt(input));
     }
 
     public void displayInformationWithUserInput() {
@@ -46,6 +54,9 @@ public class Display {
             switch (userInputOption) {
                 case "1":
                     display.displayBooks();
+                    break;
+                case "2":
+                    display.checkoutBook();
                     break;
                 default:
                     display.displayInvalidMessage();

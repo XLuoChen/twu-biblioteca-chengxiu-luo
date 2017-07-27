@@ -29,4 +29,8 @@ public class Library {
         }
         return "Sorry, the book is not exist.";
     }
+
+    public void checkoutBook(int i) {
+       System.out.println("checkout  book");
+    }
 }

@@ -10,7 +10,7 @@ public class BibliotecaApp {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
 
-        Display display = new Display(new Display());
+        Display display = new Display(new Display(),new Library());
         display.showMenu();
         display.displayInformationWithUserInput();
     }

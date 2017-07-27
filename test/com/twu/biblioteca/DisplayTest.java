@@ -10,11 +10,13 @@ import static org.mockito.Mockito.when;
 public class DisplayTest {
     private Display display;
     private Display d;
+    private Library library;
 
     @Before
     public void setUp() throws Exception {
         display = mock(Display.class);
-        d = new Display(display);
+        library = mock(Library.class);
+        d = new Display(display, library);
     }
 
     @Test
@@ -29,5 +31,12 @@ public class DisplayTest {
         when(display.getUserInputOption()).thenReturn("k","Q");
         d.displayInformationWithUserInput();
         verify(display).displayInvalidMessage();
+    }
+
+    @Test
+    public void shouldCheckoutBookWithInput() throws Exception {
+        when(display.getUserInputOption()).thenReturn("2","Q");
+        d.displayInformationWithUserInput();
+        verify(display).checkoutBook();
     }
 }
