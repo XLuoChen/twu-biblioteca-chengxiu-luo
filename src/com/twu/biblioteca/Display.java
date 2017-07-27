@@ -16,8 +16,10 @@ public class Display {
     }
 
     public void showMenu() {
-        System.out.println("\t---------------------");
+        System.out.println("\t-----------------------");
         System.out.println("\t\t1. List options");
+        System.out.println("\t\t(Input 'Q' to quit)");
+        System.out.println("\t-----------------------");
     }
 
     public String getUserInputOption() {
