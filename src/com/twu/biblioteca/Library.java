@@ -21,7 +21,6 @@ public class Library {
         return books;
     }
 
-
     public String getBookDetail(int id) {
         Book book = this.books.get(id);
         if (book != null) {
@@ -30,7 +29,10 @@ public class Library {
         return "Sorry, the book is not exist.";
     }
 
-    public void checkoutBook(int i) {
-       System.out.println("checkout  book");
+    public void checkoutBook(int id) {
+        Book book = this.books.get(id);
+        if (book != null) {
+            this.books.remove(id);
+        }
     }
 }

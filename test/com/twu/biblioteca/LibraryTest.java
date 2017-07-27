@@ -34,4 +34,13 @@ public class LibraryTest {
         when(book.getBookDetail()).thenReturn("name: Book2 author:David publishedYear:2012/2/14");
         assertEquals("name: Book2 author:David publishedYear:2012/2/14", library.getBookDetail(1));
     }
+
+    @Test
+    public void shouldCheckoutBookWithCorrectId() throws Exception {
+        ArrayList<String> books =new ArrayList<String>();
+        books.add("Book1");
+        books.add("Book3");
+        library.checkoutBook(1);
+        assertEquals(books, library.getBooks());
+    }
 }
