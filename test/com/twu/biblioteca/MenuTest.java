@@ -41,4 +41,20 @@ public class MenuTest {
         menu.menu();
         assertTrue(outContent.toString().contains("Book1\nBook2\nBook3\n"));
     }
+
+    @Test
+    public void shouldPrintSuccessfulMessageWhenInputValid() throws Exception {
+        when(display.getUserInputOption()).thenReturn("2", "1", "Q");
+        when(library.checkoutBook("1")).thenReturn(true);
+        menu.menu();
+        assertTrue(outContent.toString().contains("Thank you! Enjoy the book\n"));
+    }
+
+    @Test
+    public void shouldPrintErrorMessageWhenInputInvalid() throws Exception {
+        when(display.getUserInputOption()).thenReturn("2", "4", "Q");
+        when(library.checkoutBook("4")).thenReturn(false);
+        menu.menu();
+        assertTrue(outContent.toString().contains("That book is not available.\n"));
+    }
 }

@@ -11,9 +11,9 @@ public class Library {
     }
 
     private void readBooksFromMemory(){
-        this.books.add(new Book(0,"Book1","Jack","2002/4/12"));
-        this.books.add(new Book(1,"Book2","David","2012/2/14"));
-        this.books.add(new Book(2,"Book3","Tom","2013/9/12"));
+        this.books.add(new Book("1","Book1","Jack","2002/4/12"));
+        this.books.add(new Book("2","Book2","David","2012/2/14"));
+        this.books.add(new Book("3","Book3","Tom","2013/9/12"));
     }
 
     public ArrayList<String> getBooks() {
@@ -25,22 +25,32 @@ public class Library {
         return books;
     }
 
-    public String getBookDetail(int id) {
-        Book book = this.books.get(id);
+    private Book getBookById(String id) {
+        for (int i = 0;i <= this.books.size();i++) {
+
+            if (this.books.get(i).getId()==id){
+                return this.books.get(i);
+            }
+        }
+        return null;
+    }
+
+    public String getBookDetail(String id) {
+        Book book = getBookById(id);
         if (book != null) {
             return book.getBookDetail();
         }
         return "Sorry, the book is not exist.";
     }
 
-    public boolean checkoutBook(int id) {
-        if (id < this.books.size()) {
-            Book book = this.books.get(id);
-            if (book != null) {
-                this.books.remove(id);
+    public boolean checkoutBook(String id) {
+        System.out.println("ewew"+id);
+        Book book = getBookById(id);
+        if (book != null) {
+                this.books.remove(book);
                 return true;
             }
-        }
+
         return false;
     }
 }

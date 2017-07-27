@@ -3,12 +3,12 @@ package com.twu.biblioteca;
 import static java.lang.String.format;
 
 public class Book {
-    private int id;
+    private String id;
     private String name;
     private String author;
     private String publishedYear;
 
-    Book (int id, String name, String author, String publishedYear) {
+    Book (String id, String name, String author, String publishedYear) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -17,6 +17,10 @@ public class Book {
 
     public String getName() {
         return name;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public String getAuthor() {

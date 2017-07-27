@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Menu {
     private Library library;
     private Display display;
+    private String userInput;
 
     Menu(Library library, Display display) {
         this.library = library;
@@ -34,7 +35,7 @@ public class Menu {
         System.out.println("Please input the number of you want check out:");
         String input = display.getUserInputOption();
 
-        boolean isCheckoutBookSuccessfully = library.checkoutBook(Integer.parseInt(input));
+        boolean isCheckoutBookSuccessfully = library.checkoutBook(input);
         if (isCheckoutBookSuccessfully) {
             System.out.println("Thank you! Enjoy the book");
         } else {
@@ -44,10 +45,10 @@ public class Menu {
 
     public void menu() {
         showMenu();
-        String userInputOption = display.getUserInputOption();
-        while (!userInputOption.equals("Q")) {
+        userInput = display.getUserInputOption();
+        while (!userInput.equals("Q")) {
 
-            switch (userInputOption) {
+            switch (userInput) {
                 case "1":
                     displayBooks();
                     break;
@@ -58,8 +59,7 @@ public class Menu {
                     displayInvalidMessage();
             }
             showMenu();
-            userInputOption = display.getUserInputOption();
+            userInput = display.getUserInputOption();
         }
     }
-
 }

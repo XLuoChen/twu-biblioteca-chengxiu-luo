@@ -32,7 +32,7 @@ public class LibraryTest {
     @Test
     public void shouldGetBookDetailByBookId() throws Exception {
         when(book.getBookDetail()).thenReturn("name: Book2 author:David publishedYear:2012/2/14");
-        assertEquals("name: Book2 author:David publishedYear:2012/2/14", library.getBookDetail(1));
+        assertEquals("name: Book2 author:David publishedYear:2012/2/14", library.getBookDetail("2"));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class LibraryTest {
         ArrayList<String> books =new ArrayList<String>();
         books.add("Book1");
         books.add("Book3");
-        assertEquals(true, library.checkoutBook(1));
+        assertEquals(true, library.checkoutBook("2"));
         assertEquals(books, library.getBooks());
     }
 
@@ -50,7 +50,7 @@ public class LibraryTest {
         books.add("Book1");
         books.add("Book2");
         books.add("Book3");
-        assertEquals(false, library.checkoutBook(5));
+        assertEquals(false, library.checkoutBook("5"));
         assertEquals(books, library.getBooks());
     }
 }
