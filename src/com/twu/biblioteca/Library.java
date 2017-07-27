@@ -6,11 +6,7 @@ public class Library {
 
     ArrayList<Book> books = new ArrayList<Book>();
 
-   public Library() {
-       readBooksFromMemory();
-    }
-
-    private void readBooksFromMemory(){
+    public Library(){
         this.books.add(new Book("1","Book1","Jack","2002/4/12"));
         this.books.add(new Book("2","Book2","David","2012/2/14"));
         this.books.add(new Book("3","Book3","Tom","2013/9/12"));
@@ -26,9 +22,9 @@ public class Library {
     }
 
     private Book getBookById(String id) {
-        for (int i = 0;i <= this.books.size();i++) {
+        for (int i = 0;i < this.books.size();i++) {
 
-            if (this.books.get(i).getId()==id){
+            if (this.books.get(i).getId().equals(id)){
                 return this.books.get(i);
             }
         }
@@ -44,7 +40,6 @@ public class Library {
     }
 
     public boolean checkoutBook(String id) {
-        System.out.println("ewew"+id);
         Book book = getBookById(id);
         if (book != null) {
                 this.books.remove(book);
