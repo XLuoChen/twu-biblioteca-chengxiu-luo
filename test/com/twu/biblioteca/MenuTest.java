@@ -9,8 +9,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class MenuTest {
     private Display display;
@@ -19,18 +18,27 @@ public class MenuTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private Library library;
+    private Movie movie;
     private ArrayList<String> books;
+    private ArrayList<Movie> movies;
+    private PrintStream printStream;
 
     @Before
     public void setUp() throws Exception {
         display = mock(Display.class);
         library = mock(Library.class);
-        menu = new Menu(library, display);
+        movie = mock(Movie.class);
+        printStream = mock(PrintStream.class);
+        menu = new Menu(library, display,printStream);
         books = new ArrayList<String>();
         books.add("Book1");
         books.add("Book2");
         books.add("Book3");
 
+        movies = new ArrayList<Movie>();
+        movies.add(new Movie("1", "Movie1", "2017/6/12", "zhangyimou", "2"));
+        movies.add(new Movie("2", "Movie2", "2017/6/22", "Sam", "3"));
+        movies.add(new Movie("3", "Movie3", "2017/7/25", "Roy", "unrated"));
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
@@ -78,5 +86,18 @@ public class MenuTest {
         when(library.returnCheckoutBook(book)).thenReturn(false);
         menu.menu();
         assertTrue(outContent.toString().contains("That is not a valid book to return."));
+    }
+
+    @Test
+    public void shouldOutputAvailableMoviesInformation() throws Exception {
+        when(display.getUserInputOption()).thenReturn("4", "Q");
+        when(library.getAvailableMovies()).thenReturn(movies);
+        menu.menu();
+        String expectResult = "name\tyear\tdirector\tmovie rating\n" +
+                "Movie1\t2017/6/12\tzhangyimou\t2\n" +
+                "Movie2\t2017/6/22\tSam\t3\n" +
+                "Movie3\t2017/7/25\tRoy\tunrated\n";
+
+        verify(printStream).printf(expectResult);
     }
 }

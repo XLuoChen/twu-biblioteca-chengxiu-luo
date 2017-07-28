@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.io.PrintStream;
+
 public class BibliotecaApp {
 
     public void displayWelcomeMessage() {
@@ -11,7 +13,7 @@ public class BibliotecaApp {
         BibliotecaApp bibliotecaApp = new BibliotecaApp();
         bibliotecaApp.displayWelcomeMessage();
 
-        Menu menu = new Menu(new Library(),new Display());
+        Menu menu = new Menu(new Library(), new Display(), new PrintStream(System.out));
         menu.menu();
     }
 }

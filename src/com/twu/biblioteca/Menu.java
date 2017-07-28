@@ -1,22 +1,26 @@
 package com.twu.biblioteca;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class Menu {
     private Library library;
     private Display display;
     private String userInput;
+    private PrintStream printStream;
 
-    Menu(Library library, Display display) {
+    Menu(Library library, Display display, PrintStream printStream) {
         this.library = library;
         this.display = display;
+        this.printStream = printStream;
     }
 
     public void showMenu() {
         System.out.println("\t-----------------------");
-        System.out.println("\t\t1. List options");
+        System.out.println("\t\t1. List Books");
         System.out.println("\t\t2. Check out book");
         System.out.println("\t\t3. return book");
+        System.out.println("\t\t4. List available movies");
         System.out.println("\t\t(Input 'Q' to quit)");
         System.out.println("\t-----------------------");
     }
@@ -65,6 +69,17 @@ public class Menu {
         }
     }
 
+    private void listAvailableMovies() {
+        ArrayList<Movie> movies = library.getAvailableMovies();
+        String moviesInformation = "";
+
+        for (Movie movie : movies) {
+            moviesInformation += String.format("%s\t%s\t%s\t%s\n", movie.getName(), movie.getYear(), movie.getDirector(), movie.getMovieRating());
+        }
+
+        printStream.print("name\tyear\tdirector\tmovie rating\n" + moviesInformation);
+    }
+
     public void menu() {
         showMenu();
         userInput = display.getUserInputOption();
@@ -79,6 +94,9 @@ public class Menu {
                     break;
                 case "3":
                     returnBook();
+                    break;
+                case "4":
+                    listAvailableMovies();
                     break;
                 default:
                     displayInvalidMessage();
