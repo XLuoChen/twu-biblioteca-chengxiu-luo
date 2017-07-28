@@ -53,4 +53,16 @@ public class LibraryTest {
         assertEquals(false, library.checkoutBook("5"));
         assertEquals(books, library.getBooks());
     }
+
+    @Test
+    public void shouldAddBookWhenCheckoutBook() throws Exception {
+        ArrayList<Book> books =new ArrayList<Book>();
+        books.add(new Book("1","Book1","Jack","2002/4/12"));
+        books.add(new Book("3","Book3","Tom","2013/9/12"));
+
+        library.setBooks(books);
+        Book book = new Book("2", "Book2", "David", "2012/2/14");
+        library.returnCheckoutBook(book);
+        assertEquals(books.size(), library.getBooks().size());
+    }
 }

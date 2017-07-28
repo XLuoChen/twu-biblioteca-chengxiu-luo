@@ -48,4 +48,12 @@ public class Library {
 
         return false;
     }
+
+    public void setBooks(ArrayList<Book> books) {
+        this.books = books;
+    }
+
+    public void returnCheckoutBook(Book book) {
+        this.books.add(book);
+    }
 }
