@@ -60,6 +60,8 @@ public class Menu {
         boolean isReturnedSuccessfully = library.returnCheckoutBook(book);
         if (isReturnedSuccessfully) {
             System.out.println("Thank you for returning the book.");
+        } else {
+            System.out.println("That is not a valid book to return.");
         }
     }
 
