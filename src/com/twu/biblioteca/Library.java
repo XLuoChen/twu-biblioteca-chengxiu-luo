@@ -53,7 +53,11 @@ public class Library {
         this.books = books;
     }
 
-    public void returnCheckoutBook(Book book) {
+    public boolean returnCheckoutBook(Book book) {
+        if (getBookById(book.getId()) != null) {
+            return false;
+        }
         this.books.add(book);
+        return true;
     }
 }

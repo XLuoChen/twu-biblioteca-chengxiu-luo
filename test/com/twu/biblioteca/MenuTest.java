@@ -57,4 +57,19 @@ public class MenuTest {
         menu.menu();
         assertTrue(outContent.toString().contains("That book is not available.\n"));
     }
+
+    @Test
+    public void shouldPrintSuccessfulMessageWhenReturnCorrectBook() throws Exception {
+        Book book = new Book("2", "Book2", "David", "2012/2/14");
+
+        ArrayList<Book> books =new ArrayList<Book>();
+        books.add(new Book("1","Book1","Jack","2002/4/12"));
+        books.add(new Book("3","Book3","Tom","2013/9/12"));
+        library.setBooks(books);
+
+        when(display.getUserInputOption()).thenReturn("3", "2", "Book2", "David", "2012/3/14", "Q");
+        when(library.returnCheckoutBook(book)).thenReturn(true);
+        menu.menu();
+        assertTrue(outContent.toString().contains("Thank you for returning the book."));
+    }
 }

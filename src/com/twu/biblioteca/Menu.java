@@ -16,6 +16,7 @@ public class Menu {
         System.out.println("\t-----------------------");
         System.out.println("\t\t1. List options");
         System.out.println("\t\t2. Check out book");
+        System.out.println("\t\t3. return book");
         System.out.println("\t\t(Input 'Q' to quit)");
         System.out.println("\t-----------------------");
     }
@@ -43,6 +44,25 @@ public class Menu {
         }
     }
 
+
+    private void returnBook() {
+        System.out.println("please input the book information that you want to return:");
+        System.out.println("book number:");
+        String id = display.getUserInputOption();
+        System.out.println("book name:");
+        String name = display.getUserInputOption();
+        System.out.println("book author:");
+        String author = display.getUserInputOption();
+        System.out.println("book published year:");
+        String publishedYear = display.getUserInputOption();
+
+        Book book = new Book(id, name, author, publishedYear);
+        boolean isReturnedSuccessfully = library.returnCheckoutBook(book);
+        if (isReturnedSuccessfully) {
+            System.out.println("Thank you for returning the book.");
+        }
+    }
+
     public void menu() {
         showMenu();
         userInput = display.getUserInputOption();
@@ -54,6 +74,9 @@ public class Menu {
                     break;
                 case "2":
                     checkoutBook();
+                    break;
+                case "3":
+                    returnBook();
                     break;
                 default:
                     displayInvalidMessage();
