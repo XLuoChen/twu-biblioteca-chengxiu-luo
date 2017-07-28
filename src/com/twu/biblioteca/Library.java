@@ -5,11 +5,16 @@ import java.util.ArrayList;
 public class Library {
 
     ArrayList<Book> books = new ArrayList<Book>();
+    ArrayList<Movie> movies = new ArrayList<Movie>();
 
     public Library(){
         this.books.add(new Book("1","Book1","Jack","2002/4/12"));
         this.books.add(new Book("2","Book2","David","2012/2/14"));
         this.books.add(new Book("3","Book3","Tom","2013/9/12"));
+
+        this.movies.add(new Movie("1", "Movie1", "2017/6/12", "zhangyimou", "2"));
+        this.movies.add(new Movie("2", "Movie2", "2017/6/22", "Sam", "3"));
+        this.movies.add(new Movie("3", "Movie3", "2017/7/25", "Roy", "unrated"));
     }
 
     public ArrayList<String> getBooks() {
@@ -59,5 +64,9 @@ public class Library {
         }
         this.books.add(book);
         return true;
+    }
+
+    public ArrayList<Movie> getAvailableMovies() {
+        return this.movies;
     }
 }

@@ -65,4 +65,14 @@ public class LibraryTest {
         library.returnCheckoutBook(book);
         assertEquals(books.size(), library.getBooks().size());
     }
+
+    @Test
+    public void shouldReturnAllAvailableMovies() throws Exception {
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        movies.add(new Movie("1", "movie1", "2017/7/24", "David", "2"));
+        movies.add(new Movie("2", "Movie2", "2017/7/12", "Sam", "unrated"));
+        movies.add(new Movie("3", "Movie3", "2017/7/22", "Roy", "4"));
+
+        assertEquals(movies.size(), library.getAvailableMovies().size());
+    }
 }
