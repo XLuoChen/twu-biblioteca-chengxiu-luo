@@ -22,7 +22,6 @@ public class LibraryTest {
         movies.add(new Movie("1", "movie1", "2017/7/24", "David", "2"));
         movies.add(new Movie("2", "Movie2", "2017/7/12", "Sam", "unrated"));
         movies.add(new Movie("3", "Movie3", "2017/7/22", "Roy", "4"));
-
     }
 
     @Test
@@ -85,5 +84,13 @@ public class LibraryTest {
     @Test
     public void shouldOutputInvalidWhenCheckoutInvalidMovie() throws Exception {
         assertEquals(false, library.checkoutMovie("s"));
+    }
+
+    @Test
+    public void shouldReturnUsersWhoCheckoutedBook() throws Exception {
+        ArrayList<User> users = new ArrayList<User>();
+        users.add(new User("000-0001", "123456"));
+        users.add(new User("000-0002", "123456"));
+        assertEquals(users.size(), library.getUsersWhoCheckoutedBook().size());
     }
 }

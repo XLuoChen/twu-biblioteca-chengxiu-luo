@@ -6,6 +6,7 @@ public class Library {
 
     ArrayList<Book> books = new ArrayList<Book>();
     ArrayList<Movie> movies = new ArrayList<Movie>();
+    ArrayList<User> usersWhoCheckoutedBook = new ArrayList<User>();
 
     public Library(){
         this.books.add(new Book("1","Book1","Jack","2002/4/12"));
@@ -15,6 +16,9 @@ public class Library {
         this.movies.add(new Movie("1", "Movie1", "2017/6/12", "zhangyimou", "2"));
         this.movies.add(new Movie("2", "Movie2", "2017/6/22", "Sam", "3"));
         this.movies.add(new Movie("3", "Movie3", "2017/7/25", "Roy", "unrated"));
+
+        this.usersWhoCheckoutedBook.add(new User("000-0001", "123456"));
+        this.usersWhoCheckoutedBook.add(new User("000-0002", "123456"));
     }
 
     public ArrayList<String> getBooks() {
@@ -88,5 +92,9 @@ public class Library {
         }
 
         return false;
+    }
+
+    public ArrayList<User> getUsersWhoCheckoutedBook() {
+        return this.usersWhoCheckoutedBook;
     }
 }
