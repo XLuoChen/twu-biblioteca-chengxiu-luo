@@ -93,6 +93,7 @@ public class MenuTest {
         when(display.getUserInputOption()).thenReturn("4", "Q");
         when(library.getAvailableMovies()).thenReturn(movies);
         menu.menu();
+
         String expectResult = "name\tyear\tdirector\tmovie rating\n" +
                 "Movie1\t2017/6/12\tzhangyimou\t2\n" +
                 "Movie2\t2017/6/22\tSam\t3\n" +

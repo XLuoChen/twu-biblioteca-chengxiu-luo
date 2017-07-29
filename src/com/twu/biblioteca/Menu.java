@@ -74,10 +74,10 @@ public class Menu {
         String moviesInformation = "";
 
         for (Movie movie : movies) {
-            moviesInformation += String.format("%s\t%s\t%s\t%s\n", movie.getName(), movie.getYear(), movie.getDirector(), movie.getMovieRating());
+            moviesInformation += movie.getMovieDetail(movie);
         }
 
-        printStream.print("name\tyear\tdirector\tmovie rating\n" + moviesInformation);
+        printStream.printf("name\tyear\tdirector\tmovie rating\n" + moviesInformation);
     }
 
     public void menu() {
