@@ -38,4 +38,8 @@ public class User {
     public String getDetail() {
         return String.format("Number: %s\tPassword: %s", getNumber(), getPassword());
     }
+
+    public String getInformation(String s) {
+        return String.format("Name: %s\tEmail: %s\tPhoneNumber: %s", getName(), getEmail(), getPhoneNumber());
+    }
 }
