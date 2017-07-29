@@ -17,8 +17,8 @@ public class Library {
         this.movies.add(new Movie("2", "Movie2", "2017/6/22", "Sam", "3"));
         this.movies.add(new Movie("3", "Movie3", "2017/7/25", "Roy", "unrated"));
 
-        this.usersWhoCheckoutedBook.add(new User("000-0001", "123456"));
-        this.usersWhoCheckoutedBook.add(new User("000-0002", "123456"));
+        this.usersWhoCheckoutedBook.add(new User("000-0001", "Lucy","123456","123@qq.com","123456"));
+        this.usersWhoCheckoutedBook.add(new User("000-0002", "Tom","123456","456@qq.com","123456"));
     }
 
     public ArrayList<String> getBooks() {

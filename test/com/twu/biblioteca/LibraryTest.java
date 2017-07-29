@@ -89,8 +89,8 @@ public class LibraryTest {
     @Test
     public void shouldReturnUsersWhoCheckoutedBook() throws Exception {
         ArrayList<User> users = new ArrayList<User>();
-        users.add(new User("000-0001", "123456"));
-        users.add(new User("000-0002", "123456"));
+        users.add(new User("000-0001", "Lucy","123456","123@qq.com","123456"));
+        users.add(new User("000-0002", "Tom", "123456","456@qq.com","123456"));
         assertEquals(users.size(), library.getUsersWhoCheckoutedBook().size());
     }
 }
