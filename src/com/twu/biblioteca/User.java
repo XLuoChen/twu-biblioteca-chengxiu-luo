@@ -16,4 +16,8 @@ public class User {
     public String getPassword() {
         return password;
     }
+
+    public String getDetail() {
+        return String.format("Number: %s\tPassword: %s", getNumber(), getPassword());
+    }
 }

@@ -21,6 +21,7 @@ public class MenuTest {
     private Movie movie;
     private ArrayList<String> books;
     private ArrayList<Movie> movies;
+    private ArrayList<User> users;
     private PrintStream printStream;
 
     @Before
@@ -31,6 +32,7 @@ public class MenuTest {
         printStream = mock(PrintStream.class);
         menu = new Menu(library, display,printStream);
         books = new ArrayList<String>();
+        users = new ArrayList<User>();
         books.add("Book1");
         books.add("Book2");
         books.add("Book3");
@@ -39,6 +41,9 @@ public class MenuTest {
         movies.add(new Movie("1", "Movie1", "2017/6/12", "zhangyimou", "2"));
         movies.add(new Movie("2", "Movie2", "2017/6/22", "Sam", "3"));
         movies.add(new Movie("3", "Movie3", "2017/7/25", "Roy", "unrated"));
+
+        users.add(new User("000-0001", "123456"));
+
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
     }
@@ -116,5 +121,13 @@ public class MenuTest {
         when(library.checkoutMovie("d")).thenReturn(false);
         menu.menu();
         verify(printStream).println("That movie is not available.");
+    }
+
+    @Test
+    public void shouldListUsersWhoHasCheckoutedBook() throws Exception {
+        when(display.getUserInputOption()).thenReturn("6", "Q");
+        when(library.getUsersWhoCheckoutedBook()).thenReturn(users);
+        menu.menu();
+        verify(printStream).println("Number: 000-0001	Password: 123456");
     }
 }

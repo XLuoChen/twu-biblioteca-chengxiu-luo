@@ -22,6 +22,7 @@ public class Menu {
         System.out.println("\t\t3. return book");
         System.out.println("\t\t4. List available movies");
         System.out.println("\t\t5. Check out movie");
+        System.out.println("\t\t6. List users");
         System.out.println("\t\t(Input 'Q' to quit)");
         System.out.println("\t-----------------------");
     }
@@ -94,6 +95,15 @@ public class Menu {
 
     }
 
+
+    private void listAllUsers() {
+        ArrayList<User> users = library.getUsersWhoCheckoutedBook();
+
+        for (User user : users) {
+            printStream.println(user.getDetail());
+        }
+    }
+
     public void menu() {
         showMenu();
         userInput = display.getUserInputOption();
@@ -114,6 +124,9 @@ public class Menu {
                     break;
                 case "5":
                     checkoutMovie();
+                    break;
+                case "6":
+                    listAllUsers();
                     break;
                 default:
                     displayInvalidMessage();
