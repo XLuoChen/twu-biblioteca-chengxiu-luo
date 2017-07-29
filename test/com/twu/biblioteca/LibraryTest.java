@@ -12,11 +12,17 @@ import static org.mockito.Mockito.when;
 public class LibraryTest {
     private Library library;
     private Book book;
+    private ArrayList<Movie> movies;
 
     @Before
     public void setUp() throws Exception {
         library = new Library();
         book = mock(Book.class);
+        movies = new ArrayList<Movie>();
+        movies.add(new Movie("1", "movie1", "2017/7/24", "David", "2"));
+        movies.add(new Movie("2", "Movie2", "2017/7/12", "Sam", "unrated"));
+        movies.add(new Movie("3", "Movie3", "2017/7/22", "Roy", "4"));
+
     }
 
     @Test
@@ -68,11 +74,16 @@ public class LibraryTest {
 
     @Test
     public void shouldReturnAllAvailableMovies() throws Exception {
-        ArrayList<Movie> movies = new ArrayList<Movie>();
-        movies.add(new Movie("1", "movie1", "2017/7/24", "David", "2"));
-        movies.add(new Movie("2", "Movie2", "2017/7/12", "Sam", "unrated"));
-        movies.add(new Movie("3", "Movie3", "2017/7/22", "Roy", "4"));
-
         assertEquals(movies.size(), library.getAvailableMovies().size());
+    }
+
+    @Test
+    public void shouldCheckoutMovieWithCorrectId() throws Exception {
+        assertEquals(true, library.checkoutMovie("2"));
+    }
+
+    @Test
+    public void shouldOutputInvalidWhenCheckoutInvalidMovie() throws Exception {
+        assertEquals(false, library.checkoutMovie("s"));
     }
 }

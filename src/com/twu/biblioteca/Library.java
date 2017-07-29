@@ -69,4 +69,24 @@ public class Library {
     public ArrayList<Movie> getAvailableMovies() {
         return this.movies;
     }
+
+    private Movie getMovieById(String id) {
+        for (int i = 0;i < this.movies.size();i++) {
+
+            if (this.movies.get(i).getId().equals(id)){
+                return this.movies.get(i);
+            }
+        }
+        return null;
+    }
+
+    public boolean checkoutMovie(String id) {
+        Movie movie = getMovieById(id);
+        if (movie != null) {
+            this.movies.remove(movie);
+            return true;
+        }
+
+        return false;
+    }
 }

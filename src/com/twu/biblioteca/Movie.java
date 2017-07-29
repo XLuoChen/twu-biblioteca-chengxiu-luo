@@ -37,4 +37,8 @@ public class Movie {
     public String getMovieDetail(Movie movie) {
         return String.format("%s\t%s\t%s\t%s\n", movie.getName(), movie.getYear(), movie.getDirector(), movie.getMovieRating());
     }
+
+    public String getId() {
+        return id;
+    }
 }
