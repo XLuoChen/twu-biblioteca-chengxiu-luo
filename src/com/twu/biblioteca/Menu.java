@@ -21,6 +21,7 @@ public class Menu {
         System.out.println("\t\t2. Check out book");
         System.out.println("\t\t3. return book");
         System.out.println("\t\t4. List available movies");
+        System.out.println("\t\t5. Check out movie");
         System.out.println("\t\t(Input 'Q' to quit)");
         System.out.println("\t-----------------------");
     }
@@ -80,6 +81,19 @@ public class Menu {
         printStream.printf("name\tyear\tdirector\tmovie rating\n" + moviesInformation);
     }
 
+    private void checkoutMovie() {
+        printStream.println("Please input number of the movie you want to check out");
+        String movieId = display.getUserInputOption();
+        boolean isCheckoutMovie = library.checkoutMovie(movieId);
+
+        if (isCheckoutMovie) {
+            printStream.println("Thank you! Enjoy the movie");
+        } else {
+            printStream.println("That movie is not available.");
+        }
+
+    }
+
     public void menu() {
         showMenu();
         userInput = display.getUserInputOption();
@@ -97,6 +111,9 @@ public class Menu {
                     break;
                 case "4":
                     listAvailableMovies();
+                    break;
+                case "5":
+                    checkoutMovie();
                     break;
                 default:
                     displayInvalidMessage();

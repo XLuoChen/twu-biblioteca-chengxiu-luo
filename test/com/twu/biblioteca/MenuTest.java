@@ -101,4 +101,20 @@ public class MenuTest {
 
         verify(printStream).printf(expectResult);
     }
+
+    @Test
+    public void shouldPrintSuccessfulMessageWhenCheckoutMovie() throws Exception {
+        when(display.getUserInputOption()).thenReturn("5", "1", "Q");
+        when(library.checkoutMovie("1")).thenReturn(true);
+        menu.menu();
+        verify(printStream).println("Thank you! Enjoy the movie");
+    }
+
+    @Test
+    public void shouldPrintErrorMessageWhenCheckoutMovie() throws Exception {
+        when(display.getUserInputOption()).thenReturn("5", "d", "Q");
+        when(library.checkoutMovie("d")).thenReturn(false);
+        menu.menu();
+        verify(printStream).println("That movie is not available.");
+    }
 }
